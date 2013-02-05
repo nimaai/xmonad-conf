@@ -213,7 +213,8 @@ myKeyBindings =
 	, ((myModMask, xK_w), spawn "google-chrome &")
 	, ((myModMask, xK_f), spawn "thunar &")
 	, ((myModMask, xK_t), spawn "terminator")
-	, ((myModMask, xK_z), spawn "xscreensaver-command -lock &")
+	, ((myModMask .|. shiftMask, xK_l), spawn "xscreensaver-command -lock &")
+  , ((myModMask, xK_x), spawn "cb-exit")
   ]
 
 
