@@ -202,11 +202,18 @@ myKeyBindings =
     ((myModMask, xK_b), sendMessage ToggleStruts)
     , ((myModMask, xK_a), sendMessage MirrorShrink)
     , ((myModMask, xK_z), sendMessage MirrorExpand)
-    , ((myModMask, xK_p), spawn "synapse")
+    , ((myModMask, xK_p), spawn "gmrun")
     , ((myModMask, xK_u), focusUrgent)
     , ((0, 0x1008FF12), spawn "amixer -q set Master toggle")
     , ((0, 0x1008FF11), spawn "amixer -q set Master 10%-")
     , ((0, 0x1008FF13), spawn "amixer -q set Master 10%+")
+
+	-- #!-esque bindings
+	, ((myModMask, xK_e), spawn "sublime_text")
+	, ((myModMask, xK_w), spawn "google-chrome")
+	, ((myModMask, xK_f), spawn "thunar")
+	, ((myModMask, xK_t), spawn "terminator")
+	, ((myModMask, xK_z), spawn "xscreensaver-command -lock")
   ]
 
 

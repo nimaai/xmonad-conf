@@ -5,7 +5,7 @@
 #
 # WARNING!!! 
 # * This has only been tested on a limited number of machines running 
-#   Ubuntu 12.04 64-bit.
+#   Ubuntu 12.04 64-bit, and #! Linux Waldorf 64-bit
 # * This is not a sophisticated installation script by any stretch 
 #   of the imagination. 
 # * I take no responsibility if this overwrites any configuration settings 
@@ -18,12 +18,12 @@
 # Author: David Brewer
 
 echo "Installing required packages..."
-sudo apt-get install xmonad libghc-xmonad-dev libghc-xmonad-contrib-dev xmobar xcompmgr nitrogen stalonetray moreutils synapse ssh-askpass-gnome thunar terminator remmina
+sudo apt-get install xmonad libghc-xmonad-dev libghc-xmonad-contrib-dev xmobar xcompmgr nitrogen moreutils synapse ssh-askpass-gnome thunar terminator remmina
 
 echo "Creating xmonad xsession configuration..."
 sudo mv /usr/share/xsessions/xmonad.desktop /usr/share/xsessions/xmonad.desktop.original
 sudo cp ~/.xmonad/xmonad.desktop /usr/share/xsessions
-sudo cp ~/.xmonad/images/custom_xmonad_badge.png /usr/share/unity-greeter
+# sudo cp ~/.xmonad/images/custom_xmonad_badge.png /usr/share/unity-greeter
 
 echo "Linking to customized gnome 2 configuration..."
 mv ~/.gtkrc-2.0 ~/gtkrc-2.0.original

@@ -5,8 +5,9 @@
 # running any programs which you want to use within xmonad but
 # which don't need to be initialized before xmonad is running. 
 #
-# Author: David Brewer
-# Repository: https://github.com/davidbrewer/xmonad-ubuntu-conf
+# Author: David Brewer with modifications for #! by Jess Robertson
+# Repository: https://github.com/jessrobertson/xmonad-conf
+#
 
 #
 # TRAY ICON SOFTWARE
@@ -32,6 +33,26 @@ if [ -z "$(pgrep system-config-printer-applet)" ] ; then
     system-config-printer-applet &
 fi
 
+# Clipboard manager
+if [ -z "$(pgrep clipit)" ] ; then
+	clipit &
+fi
+
+# Volume icon
+if [ -z "$(pgrep pnmixer)" ]
+	pnmixer &
+fi
+
+# Synergy server
+if [ -z "$(synergys)" ]
+	synergys &
+fi
+
+# Rescuetime daemon
+if [ -z "$(rescuetime)" ]
+	rescuetime &
+fi
+
 #
 # APPLICATION LAUNCHER
 #
@@ -48,8 +69,8 @@ fi
 # If you don't use the ssh keychain you may not want this. Commented
 # by default as it is assumed many users will not want this feature.
 
-# export SSH_ASKPASS="/usr/bin/ssh-askpass"
-# cat /dev/null | ssh-add &
+export SSH_ASKPASS="/usr/bin/ssh-askpass"
+cat /dev/null | ssh-add &
 
 # I disable the middle mouse button because otherwise I constantly 
 # accidentally paste unwanted text in the middle of my code while scrolling. 
@@ -62,3 +83,7 @@ fi
 # Commented by default as it is assumed many users will not want this.
 # xinput set-button-map 10 1 0 3 4 5 6 7
 
+# Have statler say a little adage
+if [ -z "$(cb-fortune)" ] ; then
+	(sleep 120s && cb-fortune) &
+fi
