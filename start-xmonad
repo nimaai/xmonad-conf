@@ -3,8 +3,8 @@
 # xmonad startup script. Intended to be run from an xsession configuration
 # to run xmonad and some associated programs.
 # 
-# Author: David Brewer
-# Repository: https://github.com/davidbrewer/xmonad-ubuntu-conf
+# Author: David Brewer with modifications for #! by Jess Robertson
+# Repository: https://github.com/jesserobertson/xmonad-conf
 
 #
 # GENERAL INITIALIZATION
@@ -17,14 +17,21 @@ export GTK2_RC_FILES="$HOME/.gtkrc-2.0"
 # Load X resources (fixes some font issues)
 xrdb -merge .Xresources
 
+# Map capslock to escape
+(xmodmap -e 'clear Lock' -e 'keycode 0x42 = Escape') &
+
+# Mount backup drive
+mount /dev/sdb1 &
+
 # Start compositing to support transparency. You can omit this
 # if you prefer not to use any transparency, but it is likely to cause
 # ugly black fringing with some programs such as synapse that expect
 # transparency support.
-xcompmgr -n &
+cb-compmgr --xcompmgr &
 
-# Start synergy server
-synergys &
+# Enable power management and volume keys
+xfce4-volumed &
+xfce4-power-manager &
 
 #
 # SCREEN CONFIGURATION
@@ -57,6 +64,8 @@ xrandr | grep 'DP-1 connected' | ifne xrandr --output DP-1 --auto --left-of LVDS
 # To set your backgrounds, run nitrogren /path/to/images
 nitrogen --restore &
 
+# Start screensaver daemon
+xscreensaver --no-splash &
 
 #
 # STARTUP ICON TRAY

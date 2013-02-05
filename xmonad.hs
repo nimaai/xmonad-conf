@@ -209,11 +209,11 @@ myKeyBindings =
     , ((0, 0x1008FF13), spawn "amixer -q set Master 10%+")
 
 	-- #!-esque bindings
-	, ((myModMask, xK_e), spawn "sublime_text")
-	, ((myModMask, xK_w), spawn "google-chrome")
-	, ((myModMask, xK_f), spawn "thunar")
+	, ((myModMask, xK_e), spawn "sublime_text &")
+	, ((myModMask, xK_w), spawn "google-chrome &")
+	, ((myModMask, xK_f), spawn "thunar &")
 	, ((myModMask, xK_t), spawn "terminator")
-	, ((myModMask, xK_z), spawn "xscreensaver-command -lock")
+	, ((myModMask, xK_z), spawn "xscreensaver-command -lock &")
   ]
 
 
