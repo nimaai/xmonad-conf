@@ -1,12 +1,12 @@
-xmonad-ubuntu-conf
-==================
+xmonad-conf
+===========
 
-My xmonad config for Ubuntu 12.04, including package list, config files, and instructions.
+My xmonad config for Crunchbang Waldorf, including package list, config files, and instructions, stolen from David Brewer's excellent setup, availabel at davidbrewer/xmonad-ubuntu-conf.
 
 Overview
 --------
 
-What you're looking at is my personal xmonad configuration setup, heavily commented and organized as clearly as I could manage.
+What you're looking at is my personal xmonad configuration setup, heavily commented and organized as clearly as I could manage. This has been tweaked to have a few more of the #! look-and-feel elements.
 
 I have been using some form of this setup on a daily basis for over a year now in my work as a web developer. An xmonad configuration usually ends up being a very individualized thing, but I thought it would be valuable to share this as a starting point for people new to xmonad. I know that when I was starting with xmonad I found reading other people's configuration files the best way to learn. I hope you will find this equally helpful.
 
@@ -338,3 +338,5 @@ If you are a user of GIMP, you may find the GIMP experience in xmonad somewhat l
 ### Video Drivers ###
 
 I have an nVidia graphics card in my laptop, and I had some problems when I was using the proprietary nVidia drivers. In particular I had a very difficult time getting fonts to look the way I expected. I have had more luck with the Nouveau driver in my particular scenario. On other machines I have tried (also with nVidia cards), the proprietary drivers worked fine. It might be worth experimentation.
+
+Debian drivers for NVidia seem to work well: http://wiki.debian.org/NvidiaGraphicsDrivers#Installation-1
