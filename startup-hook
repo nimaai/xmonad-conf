@@ -44,13 +44,18 @@ if [ -z "$(pgrep pnmixer)" ]
 fi
 
 # Synergy server
-if [ -z "$(synergys)" ]
-	synergys &
+if [ -z "$(synergyc)" ]
+	synergyc greygoose &
 fi
 
 # Rescuetime daemon
 if [ -z "$(rescuetime)" ]
 	rescuetime &
+fi
+
+# Mail
+if [-z "$(icedove)" ]
+	icedove &
 fi
 
 #
