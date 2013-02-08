@@ -14,8 +14,8 @@ Config {
   -- Set font and default foreground/background colors. Note that
   -- the height of xmobar is controlled by the font you use.
   font = "xft:Ubuntu Mono-12",
-  bgColor = "black",
-  fgColor = "grey",
+  bgColor = "#000E15",
+  fgColor = "#727788",
 
   -- Position is top left, taking up 95% of screen.
   -- You are likely to have to tweak the width here based on the width
@@ -31,7 +31,7 @@ Config {
     -- If it's above 50%, we consider it high usage and make it red.  
     Run Cpu [
       "-H","50",
-      "--high","red"
+      "--high","#C2465F"
     ] 10,
 
     -- Gather and format memory usage information
@@ -40,7 +40,7 @@ Config {
     ] 10,
 
     -- Date formatting
-    Run Date "%a %b %_d %l:%M" "date" 10,
+    Run Date "%A %B %_d %l:%M" "date" 10,
 
     -- Battery information. This is likely to require some customization
     -- based upon your specific hardware. Or, for a desktop you may want
@@ -51,8 +51,8 @@ Config {
       "-c", "charge_full",
       "-O", "AC",
       "-o", "Bat",
-      "-h", "green",
-      "-l", "red"
+      "-h", "#4CAD64",
+      "-l", "#C2465F"
     ] 10,
     
     -- To get volume information, we run a custom bash script.

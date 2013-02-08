@@ -23,7 +23,12 @@ sudo apt-get install xmonad libghc-xmonad-dev libghc-xmonad-contrib-dev xmobar x
 echo "Creating xmonad xsession configuration..."
 sudo mv /usr/share/xsessions/xmonad.desktop /usr/share/xsessions/xmonad.desktop.original
 sudo cp ~/.xmonad/xmonad.desktop /usr/share/xsessions
-# sudo cp ~/.xmonad/images/custom_xmonad_badge.png /usr/share/unity-greeter
+
+echo "Adding Crunchbangin config files"
+mv ~/.config/terminator/config ~/.config/terminator/config-old
+ln -s terminator-config ~/.config/terminator/config
+mv ~/.config/nitrogen/bg-saved.cfg ~/.config/nitrogen/bg-saved.cfg-old
+ln -s nitrogen-bg.cfg ~/.config/nitrogen/bg-saved.cfg
 
 echo "Linking to customized gnome 2 configuration..."
 mv ~/.gtkrc-2.0 ~/gtkrc-2.0.original
