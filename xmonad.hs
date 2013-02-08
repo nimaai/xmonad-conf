@@ -40,8 +40,8 @@ import Data.Ratio ((%))
 -}
 
 myModMask            = mod4Mask       -- changes the mod key to "super"
-myFocusedBorderColor = "#ff0000"      -- color of focused border
-myNormalBorderColor  = "#cccccc"      -- color of inactive border
+myFocusedBorderColor = "#c2465f"      -- color of focused border
+myNormalBorderColor  = "#262b40"      -- color of inactive border
 myBorderWidth        = 1              -- width of border around windows
 myTerminal           = "terminator"   -- which terminal software to use
 myIMRosterTitle      = "Contact List" -- title of roster on IM workspace
@@ -52,11 +52,11 @@ myIMRosterTitle      = "Contact List" -- title of roster on IM workspace
   of text which xmonad is sending to xmobar via the DynamicLog hook.
 -}
 
-myTitleColor     = "#eeeeee"  -- color of window title
+myTitleColor     = "#bbbec9"  -- color of window title
 myTitleLength    = 80         -- truncate window title to this length
-myCurrentWSColor = "#e6744c"  -- color of active workspace
+myCurrentWSColor = "#4cad64"  -- color of active workspace
 myVisibleWSColor = "#c185a7"  -- color of inactive workspace
-myUrgentWSColor  = "#cc0000"  -- color of workspace with 'urgent' window
+myUrgentWSColor  = "#d25474"  -- color of workspace with 'urgent' window
 myCurrentWSLeft  = "["        -- wrap active workspace with these
 myCurrentWSRight = "]"
 myVisibleWSLeft  = "("        -- wrap inactive workspace with these
@@ -209,12 +209,12 @@ myKeyBindings =
     , ((0, 0x1008FF13), spawn "amixer -q set Master 10%+")
 
 	-- #!-esque bindings
-	, ((myModMask, xK_e), spawn "sublime_text &")
-	, ((myModMask, xK_w), spawn "google-chrome &")
+	, ((myModMask, xK_e), spawn "sublime_text -n &")
+	, ((myModMask, xK_w), spawn "google-chrome")
 	, ((myModMask, xK_f), spawn "thunar &")
 	, ((myModMask, xK_t), spawn "terminator")
 	, ((myModMask .|. shiftMask, xK_l), spawn "xscreensaver-command -lock &")
-  , ((myModMask, xK_x), spawn "cb-exit")
+    , ((myModMask, xK_x), spawn "cb-exit")
   ]
 
 
@@ -263,16 +263,13 @@ myKeyBindings =
 
 myManagementHooks :: [ManageHook]
 myManagementHooks = [
-  resource =? "synapse" --> doIgnore
-  , resource =? "stalonetray" --> doIgnore
+  resource =? "gmrun" --> doIgnore
   , className =? "rdesktop" --> doFloat
-  , (className =? "Komodo IDE") --> doF (W.shift "5:Dev")
-  , (className =? "Komodo IDE" <&&> resource =? "Komodo_find2") --> doFloat
-  , (className =? "Komodo IDE" <&&> resource =? "Komodo_gotofile") --> doFloat
-  , (className =? "Komodo IDE" <&&> resource =? "Toplevel") --> doFloat
+  , (className =? "Sublime Text 2") --> doF (W.shift "5:Dev")
   , (className =? "Empathy") --> doF (W.shift "7:Chat")
   , (className =? "Pidgin") --> doF (W.shift "7:Chat")
   , (className =? "Gimp-2.8") --> doF (W.shift "9:Pix")
+  , (className =? "Inkscape") --> doF (W.shift "9:Pix")
   ]
 
 
