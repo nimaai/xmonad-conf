@@ -263,8 +263,7 @@ myKeyBindings =
 
 myManagementHooks :: [ManageHook]
 myManagementHooks = [
-  resource =? "gmrun" --> doIgnore
-  , className =? "rdesktop" --> doFloat
+    className =? "rdesktop" --> doFloat
   , (className =? "Sublime Text 2") --> doF (W.shift "5:Dev")
   , (className =? "Empathy") --> doF (W.shift "7:Chat")
   , (className =? "Pidgin") --> doF (W.shift "7:Chat")
