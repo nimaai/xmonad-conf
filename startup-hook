@@ -39,22 +39,22 @@ if [ -z "$(pgrep clipit)" ] ; then
 fi
 
 # Volume icon
-if [ -z "$(pgrep pnmixer)" ]
+if [ -z "$(pgrep pnmixer)" ] ; then
 	pnmixer &
 fi
 
 # Synergy server
-if [ -z "$(synergyc)" ]
+if [ -z "$(pgrep synergyc)" ] ; then
 	synergyc greygoose &
 fi
 
 # Rescuetime daemon
-if [ -z "$(rescuetime)" ]
+if [ -z "$(pgrep rescuetime)" ] ; then
 	rescuetime &
 fi
 
 # Mail
-if [-z "$(icedove)" ]
+if [ -z "$(pgrep icedove)" ] ; then
 	icedove &
 fi
 
@@ -73,9 +73,9 @@ fi
 # 
 # If you don't use the ssh keychain you may not want this. Commented
 # by default as it is assumed many users will not want this feature.
-
-export SSH_ASKPASS="/usr/bin/ssh-askpass"
-cat /dev/null | ssh-add &
+#
+# export SSH_ASKPASS="/usr/bin/ssh-askpass"
+# cat /dev/null | ssh-add &
 
 # I disable the middle mouse button because otherwise I constantly 
 # accidentally paste unwanted text in the middle of my code while scrolling. 
