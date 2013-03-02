@@ -270,8 +270,9 @@ myManagementHooks :: [ManageHook]
 myManagementHooks = [
     className =? "rdesktop" --> doFloat
   , (className =? "Sublime Text 2") --> doF (W.shift "5:Dev")
-  , (className =? "Remmina") --> doF (W.shift "2:Win")
+  , (className =? "Remmina") --> doF (W.shift "2:Remote")
   , (resource =? "Remmina Remote Desktop Client") --> doFloat -- initial remmina dialogue
+  , (className =? "evince") --> doF (W.shift "4:Docs")
   , (className =? "Empathy") --> doF (W.shift "7:Chat")
   , (className =? "Pidgin") --> doF (W.shift "7:Chat")
   , (className =? "Gimp-2.8") --> doF (W.shift "9:Pix")
