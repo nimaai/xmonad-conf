@@ -59,14 +59,40 @@ If you prefer to pick and choose, the following packages can be omitted while st
 
 ### Install customized xmonad session ###
 
-To launch our xmonad session, we want to be able to pick it from the normal list of sessions available in Ubuntu's login screen, which is called "Unity Greeter". To make our customized version of Xmonad show up in the list, you will need to copy the file xmonad.desktop to the location where the greeter expects to find definitions of all the available sessions. You might also want to back up the default xmonad desktop session in case you want to revert later on.
+To launch the xmonad session, we want to be able to ick it from the list of sessions available in SLiM's login screen. The easiest way to do this is to add the ~/.xmonad/start-xmonad script to update-alternatives, as this allows you to choose the xmonad session by hitting F1 in the login screen. I've stolen this setup from the excellent description on the #! forums (http://crunchbang.org/forums/viewtopic.php?pid=180522#p180522).
 
-    sudo mv /usr/share/xsessions/xmonad.desktop /usr/share/xsessions/xmonad.desktop.original
-    sudo cp ~/.xmonad/xmonad.desktop /usr/share/xsessions
+We will be editing /etc/slim.conf as root:
 
-Ubuntu's packages do not include any icon for xmonad when showing it in the login screen. This means its icon defaults to a plain white circle. But, no worries... I've got you covered. Just copy the custom xmonadbadge into the appropriate location for a nice consistent login experience. 
+    sudo geany /etc/slim.conf
 
-    sudo cp ~/.xmonad/images/custom_xmonad_badge.png /usr/share/unity-greeter
+Find the line that starts with "sessions". It probably looks like this:
+
+    # Available sessions (first one is the default).
+    # The current chosen session name is replaced in the login_cmd
+    # above, so your login command can handle different sessions.
+    # see the xinitrc.sample file shipped with slim sources
+    sessions            openbox-session
+
+Just append the new window-manager to the end of that line, so it looks like this:
+
+    # Available sessions (first one is the default).
+    # The current chosen session name is replaced in the login_cmd
+    # above, so your login command can handle different sessions.
+    # see the xinitrc.sample file shipped with slim sources
+    sessions            openbox-session,~/.xmonad/start-xmonad
+
+Save your modifications. Now you should be able to cycle through the available window manager sessions by hittin F1 in the login screen. If you've decided that you want to keep xmonad as your default manager, then you don't want to have to hit F1 every time you log in to select it. So we need to update the default window manager from openbox to xmonad.
+
+It is easily remedied using the following commands
+
+    sudo update-alternatives --install /usr/bin/x-session-manager x-session-manager /usr/bin/scrotwm 50
+    sudo update-alternatives --config x-session-manager
+
+The last command will give you a list of installed session/window managers. The one you added should be the last in line. Just enter the number corresponding to your preferred session/window manager. You can verify that it is now the default with
+
+    sudo update-alternatives --query x-session-manager
+
+That is all there is to it. Next time you start the X server using slim, there's no need to select xmonad with F1. Just enter your user name and password, and you are dropped into the comforting arms of your preferred window manager[ess].
 
 ### Make Gnome 2-based components less ugly ###
 
