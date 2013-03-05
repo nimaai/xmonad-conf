@@ -62,11 +62,16 @@ xrandr | grep 'DP-1 connected' | ifne xrandr --output DP-1 --auto --left-of LVDS
 nitrogen --restore &
 
 # Start screensaver daemon
-xscreensaver --no-splash &
+xscreensaver -no-splash &
 
 #
 # STARTUP ICON TRAY
 #
+# We are going to use trayer to create a small icon tray at the
+# top right of the screen 
+
+# trayer --edge top --align center --SetDockType true --SetPartialStrut false --expand false --widthtype percent --width 7 --transparent true --padding 0 --tint 0x000E15 --height 22 &
+
 
 # We are using stalonetray to create a small icon tray at the
 # top right of the screen. You are likely to want to tweak the
@@ -89,21 +94,22 @@ xscreensaver --no-splash &
 #   other words, trust xmonad to handle this part.
 #
 # stalonetray \
-  # --icon-gravity E \
-  # --geometry 5x1-0+0 \
-  # --max-geometry 5x1-0+0 \
-  # --background '#000000' \
-  # --skip-taskbar \
-  # --icon-size 24 \
-  # --kludges force_icons_size \
-  # --window-strut none \
+#   --icon-gravity E \
+#   --geometry 5x1-0+0 \
+#   --border 0 \
+#   --max-geometry 5x1-0+0 \
+#   --background '#000000' \
+#   --skip-taskbar \
+#   --icon-size 24 \
+#   --kludges force_icons_size \
+#   --window-strut none \
 # &
 
 # Run the gnome-keyring-daemon to avoid issues you otherwise may encounter
 # when using gnome applications which expect access to the keyring, such
 # as Empathy. This prevents prompts you may otherwise get for invalid
 # certificates and the like.
-gnome-keyring-daemon --start --components=gpg,pkcs11,secrets,ssh
+# gnome-keyring-daemon --start --components=gpg,pkcs11,secrets,ssh
 
 # Now, finally, start xmonad
 exec xmonad

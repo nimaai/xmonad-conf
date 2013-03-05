@@ -14,9 +14,9 @@
 #
 
 # Empathy chat client (-h: start hidden, -n: don't connect on launch)
-if [ -z "$(pgrep pidgin)" ] ; then
-     pidgin &
-fi
+# if [ -z "$(pgrep pidgin)" ] ; then
+#      pidgin &
+# fi
 
 # Remmina remote desktop connection client (-i: start hidden)
 if [ -z "$(pgrep remmina)" ] ; then
@@ -49,9 +49,9 @@ if [ -z "$(pgrep synergyc)" ] ; then
 fi
 
 # Rescuetime daemon
-if [ -z "$(pgrep rescuetime)" ] ; then
-	rescuetime &
-fi
+# if [ -z "$(pgrep rescuetime)" ] ; then
+# 	rescuetime &
+# fi
 
 # Mail
 if [ -z "$(pgrep icedove)" ] ; then
@@ -63,9 +63,9 @@ fi
 #
 
 # Use synapse as our app launcher. (-s: don't display until requested) 
-if [ -z "$(pgrep synapse)" ] ; then
-    synapse -s &
-fi
+# if [ -z "$(pgrep synapse)" ] ; then
+#     synapse -s &
+# fi
 
 # On login, we unlock the ssh keychain so we're not prompted for 
 # passphrases later. We pipe /dev/null to ssh-add to make it realize 
