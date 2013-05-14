@@ -40,8 +40,8 @@ import Data.Ratio ((%))
 -}
 
 myModMask            = mod4Mask       -- changes the mod key to "super"
-myFocusedBorderColor = "#c2465f"      -- color of focused border
-myNormalBorderColor  = "#262b40"      -- color of inactive border
+myFocusedBorderColor = "#000000"      -- color of focused border
+myNormalBorderColor  = "#000000"      -- color of inactive border
 myBorderWidth        = 1              -- width of border around windows
 myTerminal           = "terminator"   -- which terminal software to use
 myIMRosterTitle      = "Contact List" -- title of roster on IM workspace
@@ -52,11 +52,11 @@ myIMRosterTitle      = "Contact List" -- title of roster on IM workspace
   of text which xmonad is sending to xmobar via the DynamicLog hook.
 -}
 
-myTitleColor     = "#bbbec9"  -- color of window title
+myTitleColor     = "#bfbfbf"  -- color of window title
 myTitleLength    = 80         -- truncate window title to this length
-myCurrentWSColor = "#4cad64"  -- color of active workspace
-myVisibleWSColor = "#c185a7"  -- color of inactive workspace
-myUrgentWSColor  = "#d25474"  -- color of workspace with 'urgent' window
+myCurrentWSColor = "#8ec63f"  -- color of active workspace
+myVisibleWSColor = "#642b8b"  -- color of inactive workspace
+myUrgentWSColor  = "#f26520"  -- color of workspace with 'urgent' window
 myCurrentWSLeft  = "["        -- wrap active workspace with these
 myCurrentWSRight = "]"
 myVisibleWSLeft  = "("        -- wrap inactive workspace with these
@@ -214,8 +214,8 @@ myKeyBindings =
     , ((0, 0x1008FF13), spawn "amixer -q set Master 10%+")
 
 	-- #!-esque bindings
-	, ((myModMask, xK_e), spawn "sublime_text -n &")
-	, ((myModMask, xK_w), spawn "google-chrome")
+	, ((myModMask, xK_s), spawn "subl -n &")
+ 	, ((myModMask, xK_g), spawn "google-chrome &")
 	, ((myModMask, xK_f), spawn "thunar &")
 	, ((myModMask, xK_t), spawn "terminator")
 	, ((myModMask .|. shiftMask, xK_l), spawn "xscreensaver-command -lock &")
@@ -269,7 +269,7 @@ myKeyBindings =
 myManagementHooks :: [ManageHook]
 myManagementHooks = [
     className =? "rdesktop" --> doFloat
-  , className =? "xfce4-notify" --> doIgnore
+  , (resource =? "xfce4-notifyd") --> doIgnore
   , (className =? "Sublime Text 2") --> doF (W.shift "5:Dev")
   , (className =? "Remmina") --> doF (W.shift "2:Remote")
   , (resource =? "Remmina Remote Desktop Client") --> doFloat -- initial remmina dialogue
@@ -281,6 +281,14 @@ myManagementHooks = [
   , (className =? "Inkscape") --> doF (W.shift "9:Pix")
   ]
 
+{-
+    Whether focus follows mouse
+    I turn this off becuase I prefer to force myself to use the keyboard 
+    bindings rather than move to the mouse.
+ -}
+
+myFocusFollowsMouse :: Bool
+myFocusFollowsMouse = False
 
 {-
   Workspace navigation keybindings. This is probably the part of the
@@ -349,6 +357,7 @@ main = do
   xmonad $ withUrgencyHook NoUrgencyHook $ defaultConfig {
     focusedBorderColor = myFocusedBorderColor
   , normalBorderColor = myNormalBorderColor
+  , focusFollowsMouse = myFocusFollowsMouse
   , terminal = myTerminal
   , borderWidth = myBorderWidth
   , layoutHook = myLayouts

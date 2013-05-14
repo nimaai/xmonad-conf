@@ -9,12 +9,15 @@
 [profiles]
   [[default]]
     scrollbar_position = hidden
-    palette = "#000e15:#c2465f:#4cad64:#b8904c:#5085a8:#c45aa1:#4ea7ad:#797e8f:#262b40:#d25474:#5acc74:#d6a45a:#5ca1c9:#d16db0:#68c4c7:#bbbec9"
+    palette = "#2e3436:#cccccc:#9a9a9a:#c4c4c4:#a4a4a4:#7b7b7b:#9a9a9a:#d7d7d7:#555753:#efefef:#e2e2e2:#fcfcfc:#cfcfcf:#adadad:#e2e2e2:#eeeeee"
+    background_darkness = 0.8
+    background_type = transparent
     use_system_font = False
-    foreground_color = "#727788"
+    cursor_color = "#f7f7f7"
+    foreground_color = "#a6a6a6"
     show_titlebar = False
-    font = DejaVu Sans Mono 10
-    background_color = "#000e15"
+    font = Inconsolata Medium 12
+    background_color = "#070707"
     scrollback_infinite = True
   [[light]]
     scrollbar_position = hidden
@@ -26,7 +29,7 @@
     foreground_color = "#443025"
     show_titlebar = False
     cursor_shape = underline
-    font = DejaVu Sans Mono 10
+    font = Inconsolata Medium 12
     background_color = "#cda17c"
   [[dark]]
     scrollbar_position = hidden
@@ -35,7 +38,7 @@
     cursor_color = "#b71cdc"
     foreground_color = "#e7ddff"
     show_titlebar = False
-    font = DejaVu Sans Mono 10
+    font = Inconsolata Medium 12
     scrollback_infinite = True
   [[greys]]
     palette = "#2e3436:#cccccc:#9a9a9a:#c4c4c4:#a4a4a4:#7b7b7b:#9a9a9a:#d7d7d7:#555753:#efefef:#e2e2e2:#fcfcfc:#cfcfcf:#adadad:#e2e2e2:#eeeeee"
@@ -45,7 +48,7 @@
     cursor_color = "#f7f7f7"
     foreground_color = "#a6a6a6"
     show_titlebar = False
-    font = DejaVu Sans Mono 10
+    font = Inconsolata Medium 12
     background_color = "#070707"
     scrollback_infinite = True
   [[colorfull]]
@@ -54,9 +57,8 @@
     use_system_font = False
     foreground_color = "#727788"
     show_titlebar = False
-    font = DejaVu Sans Mono 10
+    font = Inconsolata Medium 12
     background_color = "#000e15"
-    scrollback_infinite = True
 [layouts]
   [[default]]
     [[[child0]]]
