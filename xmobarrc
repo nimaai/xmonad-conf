@@ -14,8 +14,8 @@ Config {
   -- Set font and default foreground/background colors. Note that
   -- the height of xmobar is controlled by the font you use.
   font = "xft:Ubuntu Mono-12",
-  bgColor = "#000000",
-  fgColor = "#bfbfbf",
+  bgColor = "#000E15",
+  fgColor = "#727788",
 
   -- Position is top 
   -- position = TopW R 95, 
@@ -28,7 +28,7 @@ Config {
     -- If it's above 50%, we consider it high usage and make it red.  
     Run Cpu [
       "-H","50",
-      "--high","#fe0000"
+      "--high","#C2465F"
     ] 10,
 
     -- Gather and format memory usage information
@@ -48,8 +48,8 @@ Config {
       "-c", "charge_full",
       "-O", "AC",
       "-o", "Bat",
-      "-h", "#8ec63f",
-      "-l", "#fe0000"
+      "-h", "#4CAD64",
+      "-l", "#C2465F"
     ] 10,
     
     -- To get volume information, we run a custom bash script.
@@ -71,5 +71,5 @@ Config {
 
    -- Overall template for the layout of the xmobar contents. Note that
    -- space is significant and can be used to add padding.
-   template = "%StdinReader% }{ %battery% | %cpu% | %memory% | Vol: %myvolume%    <fc=#f26520>%date%</fc>     "
+   template = "%StdinReader% }{ %battery% | %cpu% | %memory% | Vol: %myvolume%    <fc=#5085A8>%date%</fc>     "
 }

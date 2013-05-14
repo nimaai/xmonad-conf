@@ -24,39 +24,38 @@ xrdb -merge .Xresources
 # if you prefer not to use any transparency, but it is likely to cause
 # ugly black fringing with some programs such as synapse that expect
 # transparency support.
-cb-compmgr --xcompmgr &
+# cb-compmgr --xcompmgr &
 
 # Enable power management and volume keys
 xfce4-volumed &
 xfce4-power-manager &
 
 #
-# SCREEN CONFIGURATION
-#
-
-# Activate primary screen 
-xrandr --output LVDS1 --auto --primary
-
-# If we find that a screen is connected via VGA, activate it and position it
-# to the left of the primary screen.
-xrandr | grep 'VGA1 connected' | ifne xrandr --output VGA1 --primary --auto --right-of LVDS1
-
-# If we find that a screen is connected via DVI, activate it and position it
-# to the left of the primary screen.
-xrandr | grep 'DP1 connected' | ifne xrandr --output DP1 --auto --primary --right-of LVDS1
-
-# If we find that a screen is connected via HDMI, activate it and position it to the left of the primary screen
-xrandr | grep 'HDMI1 connected' | ifne xrandr --output HDMI1 --auto --primary --left-of LVDS1
-
-#
 # LOAD SCREEN BACKGROUNDS
 #
-
 # To set your backgrounds, run nitrogren /path/to/images
 nitrogen --restore &
 
 # Start screensaver daemon
 xscreensaver -no-splash &
+
+#
+# SCREEN CONFIGURATION
+#
+
+# Activate primary screen 
+xrandr | grep 'LVDS1 connected' | ifne xrandr --output LVDS1 --auto --primary
+
+# If we find that a screen is connected via VGA, activate it and position it
+# to the left of the primary screen.
+xrandr | grep 'VGA1 connected' | ifne xrandr --output VGA1 --primary --auto 
+
+# If we find that a screen is connected via DVI, activate it and position it
+# to the left of the primary screen.
+xrandr | grep 'DP1 connected' | ifne xrandr --output DP1 --auto
+
+# If we find that a screen is connected via HDMI, activate it and position it to the left of the primary screen
+xrandr | grep 'HDMI1 connected' | ifne xrandr --output HDMI1 --auto
 
 #
 # STARTUP ICON TRAY
