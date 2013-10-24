@@ -44,18 +44,7 @@ xscreensaver -no-splash &
 #
 
 # Activate primary screen 
-xrandr | grep 'LVDS1 connected' | ifne xrandr --output LVDS1 --auto --primary
-
-# If we find that a screen is connected via VGA, activate it and position it
-# to the left of the primary screen.
-xrandr | grep 'VGA1 connected' | ifne xrandr --output VGA1 --primary --auto 
-
-# If we find that a screen is connected via DVI, activate it and position it
-# to the left of the primary screen.
-xrandr | grep 'DP1 connected' | ifne xrandr --output DP1 --auto
-
-# If we find that a screen is connected via HDMI, activate it and position it to the left of the primary screen
-xrandr | grep 'HDMI1 connected' | ifne xrandr --output HDMI1 --auto
+xrandr --output LVDS1 --auto --primary --output VGA1 --auto --right-of LVDS1
 
 #
 # STARTUP ICON TRAY
