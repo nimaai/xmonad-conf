@@ -43,7 +43,7 @@ myModMask            = mod4Mask       -- changes the mod key to "super"
 myFocusedBorderColor = "#000000"      -- color of focused border
 myNormalBorderColor  = "#000000"      -- color of inactive border
 myBorderWidth        = 1              -- width of border around windows
-myTerminal           = "xterm"   -- which terminal software to use
+myTerminal           = "xterm"        -- which terminal software to use
 myIMRosterTitle      = "Contact List" -- title of roster on IM workspace
 
 
@@ -215,7 +215,7 @@ myKeyBindings =
 
 	-- #!-esque bindings
 	, ((myModMask, xK_s), spawn "subl -n &")
- 	, ((myModMask, xK_g), spawn "google-chrome &")
+ 	, ((myModMask, xK_g), spawn "firefox &")
 	, ((myModMask, xK_f), spawn "thunar &")
 	, ((myModMask, xK_t), spawn "xterm")
 	, ((myModMask .|. shiftMask, xK_l), spawn "xscreensaver-command -lock &")
