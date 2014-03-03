@@ -48,7 +48,9 @@ Config {
       "-O", "AC",
       "-o", "Bat",
       "-h", "#4CAD64",
-      "-l", "#C2465F"
+      "-l", "#C2465F",
+      "-c", "#C2465F",
+      "-f", "/sys/class/power_supply/AC/online"
     ] 10,
     
     -- To get volume information, we run a custom bash script.
