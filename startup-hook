@@ -84,4 +84,4 @@ fi
 # xinput set-button-map 10 1 0 3 4 5 6 7
 
 # Have statler say a little adage
-(sleep 120s && cb-fortune) &
+# (sleep 120s && cb-fortune) &
