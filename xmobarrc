@@ -49,7 +49,7 @@ Config {
       "-o", "Bat",
       "-h", "#4CAD64",
       "-l", "#C2465F",
-      "-c", "#C2465F",
+      "-c", "energy_full",
       "-f", "/sys/class/power_supply/AC/online"
     ] 10,
     
