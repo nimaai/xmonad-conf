@@ -43,7 +43,7 @@ myModMask            = mod4Mask       -- changes the mod key to "super"
 myFocusedBorderColor = "#00FFFF"      -- color of focused border
 myNormalBorderColor  = "#000000"      -- color of inactive border
 myBorderWidth        = 1              -- width of border around windows
-myTerminal           = "xterm"        -- which terminal software to use
+myTerminal           = "terminator"   -- which terminal software to use
 myIMRosterTitle      = "Contact List" -- title of roster on IM workspace
 
 
