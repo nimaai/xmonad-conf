@@ -21,7 +21,6 @@ import XMonad.Layout.ResizableTile
 import XMonad.Layout.IM
 import XMonad.Layout.ThreeColumns
 import XMonad.Layout.NoBorders
-import XMonad.Layout.Circle
 import XMonad.Layout.PerWorkspace (onWorkspace)
 import XMonad.Layout.Fullscreen
 import XMonad.Util.EZConfig
@@ -132,11 +131,7 @@ defaultLayouts = smartBorders(avoidStruts(
   -- Grid layout tries to equally distribute windows in the available
   -- space, increasing the number of columns and rows as necessary.
   -- Master window is at top left.
-  ||| Grid
-
-  -- Circle layout places the master window in the center of the screen.
-  -- Remaining windows appear in a circle around it
-  ||| Circle))
+  ||| Grid))
 
 -- Here we define some layouts which will be assigned to specific
 -- workspaces based on the functionality of that workspace.
