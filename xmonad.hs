@@ -205,7 +205,7 @@ myKeyBindings =
  	, ((myModMask, xK_g), spawn "firefox &")
 	, ((myModMask, xK_f), spawn "thunar &")
 	, ((myModMask .|. shiftMask, xK_l), spawn "xscreensaver-command -lock &")
-    -- , ((myModMask, xK_x), spawn "cb-exit")
+     , ((myModMask, xK_x), spawn "cb-exit")
   ]
 
 
