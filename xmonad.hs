@@ -85,9 +85,9 @@ myUrgentWSRight = "}"
 
 myWorkspaces =
   [
-    "7:Chat",  "8:Dbg", "9:Pix",
-    "4:Docs",  "5:Dev", "6:Web",
-    "1:Term",  "2:Remote", "3:Mail",
+    "7:Chat",  "8:Git", "9:Pix",
+    "4:Dbg",  "5:Dev", "6:Test",
+    "1:Term",  "2:Web", "3:Mail",
     "0:VM",    "Extr1", "Extr2"
   ]
 
@@ -159,8 +159,7 @@ gimpLayout = smartBorders(avoidStruts(ThreeColMid 1 (3/100) (3/4)))
 -- Here we combine our default layouts with our specific, workspace-locked
 -- layouts.
 myLayouts =
-  onWorkspace "2:Remote" remminaLayout
-  $ onWorkspace "7:Chat" chatLayout
+  onWorkspace "7:Chat" chatLayout
   $ onWorkspace "9:Pix" gimpLayout
   $ defaultLayouts
 
@@ -257,9 +256,6 @@ myManagementHooks = [
     className =? "rdesktop" --> doFloat
   , (resource =? "xfce4-notifyd") --> doIgnore
   , (className =? "Sublime Text 2") --> doF (W.shift "5:Dev")
-  , (className =? "Remmina") --> doF (W.shift "2:Remote")
-  , (resource =? "Remmina Remote Desktop Client") --> doFloat -- initial remmina dialogue
-  , (className =? "evince") --> doF (W.shift "4:Docs")
   , (className =? "Empathy") --> doF (W.shift "3:Mail")
   , (className =? "Icedove") --> doF (W.shift "3:Mail")
   , (className =? "Pidgin") --> doF (W.shift "7:Chat")
@@ -327,7 +323,7 @@ myKeys = myKeyBindings ++
   [
     ((m .|. myModMask, key), screenWorkspace sc
       >>= flip whenJust (windows . f))
-      | (key, sc) <- zip [xK_w, xK_e, xK_r] [0,1,2]
+      | (key, sc) <- zip [xK_w, xK_e] [1,2]
       , (f, m) <- [(W.view, 0), (W.shift, shiftMask)]
   ]
 
