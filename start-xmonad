@@ -1,8 +1,3 @@
-#!/bin/bash
-# 
-# xmonad startup script. Intended to be run from an xsession configuration
-# to run xmonad and some associated programs.
-# 
 # Author: David Brewer with modifications for #! by Jess Robertson
 # Repository: https://github.com/jesserobertson/xmonad-conf
 
@@ -42,9 +37,7 @@ xscreensaver -no-splash &
 #
 # SCREEN CONFIGURATION
 #
-
-# Activate primary screen 
-xrandr --output LVDS1 --auto --primary --output VGA1 --auto --right-of LVDS1
+~/.xmonad/screen-custom
 
 #
 # STARTUP ICON TRAY
