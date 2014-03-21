@@ -23,6 +23,7 @@ import XMonad.Layout.ThreeColumns
 import XMonad.Layout.NoBorders
 import XMonad.Layout.PerWorkspace (onWorkspace)
 import XMonad.Layout.Fullscreen
+import XMonad.Layout.Minimize
 import XMonad.Util.EZConfig
 import XMonad.Util.Run
 import XMonad.Hooks.DynamicLog
@@ -112,7 +113,8 @@ startupWorkspace = "5:Dev"  -- which workspace do you want to be on after launch
 -- appear if there is more than one visible window.
 -- "avoidStruts" modifier makes it so that the layout provides
 -- space for the status bar at the top of the screen.
-defaultLayouts = smartBorders(avoidStruts(
+-- "minimize" modifier makes it possible to minimize windows.
+defaultLayouts = minimize(smartBorders(avoidStruts(
   -- Full layout makes every window full screen. When you toggle the
   -- active window, it will bring the active window to the front.
   noBorders Full
@@ -126,7 +128,7 @@ defaultLayouts = smartBorders(avoidStruts(
   -- Mirrored variation of ResizableTall. In this layout, the large
   -- master window is at the top, and remaining windows tile at the
   -- bottom of the screen. Can be resized as described above.
-  ||| Mirror (ResizableTall 1 (3/100) (1/2) [])))
+  ||| Mirror (ResizableTall 1 (3/100) (1/2) []))))
 
 -- Here we define some layouts which will be assigned to specific
 -- workspaces based on the functionality of that workspace.
@@ -183,13 +185,15 @@ myKeyBindings =
     , ((0, 0x1008FF12), spawn "amixer -q set Master toggle")
     , ((0, 0x1008FF11), spawn "amixer -q set Master 10%-")
     , ((0, 0x1008FF13), spawn "amixer -q set Master 10%+")
+    , ((myModMask, xK_m), withFocused minimizeWindow)
+    , ((myModMask .|. shiftMask, xK_m), sendMessage RestoreNextMinimizedWin)
 
-	-- #!-esque bindings
-	, ((myModMask, xK_s), spawn "subl -n &")
- 	, ((myModMask, xK_g), spawn "firefox &")
-	, ((myModMask, xK_f), spawn "thunar &")
-	, ((myModMask .|. shiftMask, xK_l), spawn "xscreensaver-command -lock &")
-     , ((myModMask, xK_x), spawn "cb-exit")
+    -- #!-esque bindings
+    , ((myModMask, xK_s), spawn "subl -n &")
+    , ((myModMask, xK_g), spawn "firefox &")
+    , ((myModMask, xK_f), spawn "thunar &")
+    , ((myModMask .|. shiftMask, xK_l), spawn "xscreensaver-command -lock &")
+    , ((myModMask, xK_x), spawn "cb-exit")
   ]
 
 
