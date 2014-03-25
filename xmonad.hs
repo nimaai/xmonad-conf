@@ -24,6 +24,7 @@ import XMonad.Layout.NoBorders
 import XMonad.Layout.PerWorkspace (onWorkspace)
 import XMonad.Layout.Fullscreen
 import XMonad.Layout.Minimize
+import XMonad.Layout.BoringWindows
 import XMonad.Util.EZConfig
 import XMonad.Util.Run
 import XMonad.Hooks.DynamicLog
@@ -45,7 +46,6 @@ myNormalBorderColor  = "#BDBDBD"      -- color of inactive border
 myBorderWidth        = 1              -- width of border around windows
 myTerminal           = "terminator"   -- which terminal software to use
 myIMRosterTitle      = "Contact List" -- title of roster on IM workspace
-
 
 {-
   Xmobar configuration variables. These settings control the appearance
@@ -114,7 +114,7 @@ startupWorkspace = "5:Dev"  -- which workspace do you want to be on after launch
 -- "avoidStruts" modifier makes it so that the layout provides
 -- space for the status bar at the top of the screen.
 -- "minimize" modifier makes it possible to minimize windows.
-defaultLayouts = smartBorders(avoidStruts(
+defaultLayouts = minimize (smartBorders (avoidStruts (
   -- Full layout makes every window full screen. When you toggle the
   -- active window, it will bring the active window to the front.
   noBorders Full
@@ -123,12 +123,12 @@ defaultLayouts = smartBorders(avoidStruts(
   -- and remaining windows tile on the right. By default each area
   -- takes up half the screen, but you can resize using "super-h" and
   -- "super-l".
-  ||| minimize (ResizableTall 1 (3/100) (1/2) [])
+  ||| ResizableTall 1 (3/100) (1/2) []
 
   -- Mirrored variation of ResizableTall. In this layout, the large
   -- master window is at the top, and remaining windows tile at the
   -- bottom of the screen. Can be resized as described above.
-  ||| minimize (Mirror (ResizableTall 1 (3/100) (1/2) []))))
+  ||| Mirror (ResizableTall 1 (3/100) (1/2) []))))
 
 -- Here we define some layouts which will be assigned to specific
 -- workspaces based on the functionality of that workspace.
@@ -185,8 +185,8 @@ myKeyBindings =
     , ((0, 0x1008FF12), spawn "amixer -q set Master toggle")
     , ((0, 0x1008FF11), spawn "amixer -q set Master 10%-")
     , ((0, 0x1008FF13), spawn "amixer -q set Master 10%+")
-    , ((myModMask, xK_m), withFocused minimizeWindow)
-    , ((myModMask .|. shiftMask, xK_m), sendMessage RestoreNextMinimizedWin)
+    , ((myModMask, xK_n), withFocused minimizeWindow)
+    , ((myModMask .|. shiftMask, xK_n), sendMessage RestoreNextMinimizedWin)
 
     -- #!-esque bindings
     , ((myModMask, xK_s), spawn "subl -n &")
@@ -259,7 +259,7 @@ myManagementHooks = [
  -}
 
 myFocusFollowsMouse :: Bool
-myFocusFollowsMouse = False
+myFocusFollowsMouse = True
 
 {-
   Workspace navigation keybindings. This is probably the part of the
@@ -312,7 +312,7 @@ myKeys = myKeyBindings ++
   [
     ((m .|. myModMask, key), screenWorkspace sc
       >>= flip whenJust (windows . f))
-      | (key, sc) <- zip [xK_w, xK_e] [1,2]
+      | (key, sc) <- zip [xK_w, xK_e] [1,0]
       , (f, m) <- [(W.view, 0), (W.shift, shiftMask)]
   ]
 
