@@ -185,8 +185,8 @@ myKeyBindings =
     , ((0, 0x1008FF12), spawn "amixer -q set Master toggle")
     , ((0, 0x1008FF11), spawn "amixer -q set Master 10%-")
     , ((0, 0x1008FF13), spawn "amixer -q set Master 10%+")
-    , ((myModMask, xK_n), withFocused minimizeWindow)
-    , ((myModMask .|. shiftMask, xK_n), sendMessage RestoreNextMinimizedWin)
+    , ((myModMask, xK_d), withFocused minimizeWindow)
+    , ((myModMask .|. shiftMask, xK_d), sendMessage RestoreNextMinimizedWin)
 
     -- #!-esque bindings
     , ((myModMask, xK_s), spawn "subl -n &")
