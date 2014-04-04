@@ -132,7 +132,12 @@ defaultLayouts = minimize (smartBorders (avoidStruts (
         -- Mirrored variation of ResizableTall. In this layout, the large
         -- master window is at the top, and remaining windows tile at the
         -- bottom of the screen. Can be resized as described above.
-        ||| Mirror (ResizableTall 1 (3/100) (1/2) [])))))
+        ||| Mirror (ResizableTall 1 (3/100) (1/2) [])
+
+        -- Grid layout tries to equally distribute windows in the available
+        -- space, increasing the number of columns and rows as necessary.
+        -- Master window is at top left.
+        ||| Grid))))
 
 -- Here we define some layouts which will be assigned to specific
 -- workspaces based on the functionality of that workspace.
@@ -154,6 +159,7 @@ gimpLayout = smartBorders(avoidStruts(ThreeColMid 1 (3/100) (3/4)))
 myLayouts =
   onWorkspace "9:Pix" gimpLayout
   $ defaultLayouts
+
 
 {-
   Custom keybindings. In this section we define a list of relatively
