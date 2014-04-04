@@ -16,7 +16,7 @@
 
 import XMonad
 import XMonad.Hooks.SetWMName
-{-import XMonad.Layout.Grid-}
+import XMonad.Layout.Grid
 import XMonad.Layout.ResizableTile
 import XMonad.Layout.IM
 import XMonad.Layout.ThreeColumns
