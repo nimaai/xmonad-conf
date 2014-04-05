@@ -25,6 +25,9 @@ xrdb -merge .Xresources
 xfce4-volumed &
 xfce4-power-manager &
 
+# start owncloud client
+owncloud &
+
 #
 # LOAD SCREEN BACKGROUNDS
 #
@@ -81,4 +84,3 @@ gnome-keyring-daemon --start --components=gpg,pkcs11,secrets,ssh
 
 # Now, finally, start xmonad
 exec xmonad
-
