@@ -62,22 +62,22 @@ xscreensaver -no-splash &
 # - window-strut "none" means windows are allowed to cover the tray. In
 #   other words, trust xmonad to handle this part.
 
-# stalonetray \
-#     --icon-gravity W \
-#     --geometry 5x1+0+0 \
-#     --max-geometry 5x1+0+0 \
-#     --background "#000000" \
-#     --skip-taskbar \
-#     --icon-size 20 \
-#     --kludges force_icons_size \
-#     --window-strut none \
-# &
+stalonetray \
+    --icon-gravity W \
+    --geometry 5x1+0+0 \
+    --max-geometry 5x1+0+0 \
+    --background "#000000" \
+    --skip-taskbar \
+    --icon-size 20 \
+    --kludges force_icons_size \
+    --window-strut none \
+&
 
 # Run the gnome-keyring-daemon to avoid issues you otherwise may encounter
 # when using gnome applications which expect access to the keyring, such
 # as Empathy. This prevents prompts you may otherwise get for invalid
 # certificates and the like.
-# gnome-keyring-daemon --start --components=gpg,pkcs11,secrets,ssh
+gnome-keyring-daemon --start --components=gpg,pkcs11,secrets,ssh
 
 # Now, finally, start xmonad
 exec xmonad
