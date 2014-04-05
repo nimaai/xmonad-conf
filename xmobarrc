@@ -37,7 +37,7 @@ Config {
     -- ] 10,
 
     -- Date formatting
-    Run Date "%A %B %_d %l:%M" "date" 10,
+    Run Date "%B %_d %l:%M" "date" 10,
 
     -- Battery information. This is likely to require some customization
     -- based upon your specific hardware. Or, for a desktop you may want
