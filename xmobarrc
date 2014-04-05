@@ -26,15 +26,15 @@ Config {
   commands = [ 
     -- Gather and format CPU usage information. 
     -- If it's above 50%, we consider it high usage and make it red.  
-    Run Cpu [
-      "-H","50",
-      "--high","#C2465F"
-    ] 10,
+    -- Run Cpu [
+    --   "-H","50",
+    --   "--high","#C2465F"
+    -- ] 10,
 
-    -- Gather and format memory usage information
-    Run Memory [
-      "-t","Mem: <usedratio>%"
-    ] 10,
+    -- -- Gather and format memory usage information
+    -- Run Memory [
+    --   "-t","Mem: <usedratio>%"
+    -- ] 10,
 
     -- Date formatting
     Run Date "%A %B %_d %l:%M" "date" 10,
@@ -72,5 +72,5 @@ Config {
 
    -- Overall template for the layout of the xmobar contents. Note that
    -- space is significant and can be used to add padding.
-   template = "%StdinReader% }{ %battery% | %cpu% | %memory% | Vol: %myvolume%    <fc=#5085A8>%date%</fc>     "
+   template = "%StdinReader% }{ %battery% | Vol: %myvolume%    <fc=#5085A8>%date%</fc>     "
 }
