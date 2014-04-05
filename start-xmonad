@@ -67,7 +67,7 @@ xscreensaver -no-splash &
 
 stalonetray \
     --icon-gravity W \
-    --geometry 5x1+0+0 \
+    --geometry 5x1-0+0 \
     --max-geometry 5x1+0+0 \
     --background "#000000" \
     --skip-taskbar \

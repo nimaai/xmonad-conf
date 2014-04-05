@@ -264,6 +264,7 @@ myManagementHooks = [
   , (className =? "Pidgin") --> doF (W.shift "7:Chat")
   , (className =? "Gimp-2.8") --> doF (W.shift "9:Pix")
   , (className =? "Inkscape") --> doF (W.shift "9:Pix")
+  , (className =? "stalonetray") --> doIgnore
   ]
 
 {-
