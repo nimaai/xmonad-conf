@@ -327,7 +327,7 @@ myKeys = myKeyBindings ++
   [
     ((m .|. myModMask, key), screenWorkspace sc
       >>= flip whenJust (windows . f))
-      | (key, sc) <- zip [xK_w, xK_e] [1,0]
+      | (key, sc) <- zip [xK_comma, xK_period] [1,0]
       , (f, m) <- [(W.view, 0), (W.shift, shiftMask)]
   ]
 
