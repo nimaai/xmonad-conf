@@ -28,6 +28,9 @@ xfce4-power-manager &
 # start owncloud client
 owncloud &
 
+# start blueman applet
+blueman-applet &
+
 #
 # LOAD SCREEN BACKGROUNDS
 #
