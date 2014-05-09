@@ -16,7 +16,7 @@
 
 import XMonad
 import XMonad.Hooks.SetWMName
-import XMonad.Layout.Grid
+-- import XMonad.Layout.Grid
 import XMonad.Layout.ResizableTile
 import XMonad.Layout.IM
 import XMonad.Layout.ThreeColumns
@@ -132,12 +132,12 @@ defaultLayouts = minimize (smartBorders (avoidStruts (
         -- Mirrored variation of ResizableTall. In this layout, the large
         -- master window is at the top, and remaining windows tile at the
         -- bottom of the screen. Can be resized as described above.
-        ||| Mirror (ResizableTall 1 (3/100) (1/2) [])
+        ||| Mirror (ResizableTall 1 (3/100) (1/2) [])))))
 
         -- Grid layout tries to equally distribute windows in the available
         -- space, increasing the number of columns and rows as necessary.
         -- Master window is at top left.
-        ||| Grid))))
+        -- ||| Grid))))
 
 -- Here we define some layouts which will be assigned to specific
 -- workspaces based on the functionality of that workspace.
