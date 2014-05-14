@@ -68,7 +68,7 @@ xscreensaver -no-splash &
 # - window-strut "none" means windows are allowed to cover the tray. In
 #   other words, trust xmonad to handle this part.
 
-stalonetray --icon-gravity W --geometry 6x1-0+0 --max-geometry 6x1+0+0 --background "#000000" --skip-taskbar --icon-size 20 --kludges force_icons_size --window-strut none &
+stalonetray --icon-gravity W --geometry 8x1-0+0 --max-geometry 8x1+0+0 --background "#000000" --skip-taskbar --icon-size 20 --kludges force_icons_size --window-strut none &
 
 # Run the gnome-keyring-daemon to avoid issues you otherwise may encounter
 # when using gnome applications which expect access to the keyring, such
