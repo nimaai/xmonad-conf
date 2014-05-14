@@ -37,7 +37,7 @@ Config {
     -- ] 10,
 
     -- Date formatting
-    Run Date "%B %_d %l:%M" "date" 10,
+    Run Date "%H:%M" "date" 10,
 
     -- Battery information. This is likely to require some customization
     -- based upon your specific hardware. Or, for a desktop you may want
@@ -72,5 +72,5 @@ Config {
 
    -- Overall template for the layout of the xmobar contents. Note that
    -- space is significant and can be used to add padding.
-   template = "%StdinReader% }{ <fc=#5085A8>%date%</fc>                           "
+   template = "<fc=#5085A8>%date% *** </fc> %StdinReader%"
 }
