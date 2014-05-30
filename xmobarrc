@@ -72,5 +72,5 @@ Config {
 
    -- Overall template for the layout of the xmobar contents. Note that
    -- space is significant and can be used to add padding.
-   template = "<fc=#5085A8>%date% >>= </fc> %StdinReader%}{                    "
+   template = "<fc=#5085A8>%date% >>= </fc> %StdinReader%}{                                   "
 }
