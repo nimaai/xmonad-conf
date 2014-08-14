@@ -359,7 +359,7 @@ main = do
       <+> manageDocks
   , logHook = dynamicLogWithPP $ xmobarPP {
       ppOutput = hPutStrLn xmproc
-      , ppTitle = xmobarColor myTitleColor "" . shorten myTitleLength
+      , ppTitle = \str -> ""
       , ppCurrent = xmobarColor myCurrentWSColor ""
         . wrap myCurrentWSLeft myCurrentWSRight
       , ppVisible = xmobarColor myVisibleWSColor ""
