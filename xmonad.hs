@@ -28,6 +28,7 @@ import XMonad.Layout.BoringWindows
 import XMonad.Util.EZConfig
 import XMonad.Util.Run
 import XMonad.Hooks.DynamicLog
+import XMonad.Actions.GridSelect
 import XMonad.Actions.Plane
 import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.UrgencyHook
@@ -160,6 +161,8 @@ myLayouts =
   onWorkspace "9:Pix" gimpLayout
   $ defaultLayouts
 
+-- here we define our custom GridSelect config
+gsconfig = defaultGSConfig { gs_navigate = navNSearch }
 
 {-
   Custom keybindings. In this section we define a list of relatively
@@ -203,7 +206,7 @@ myKeyBindings =
     , ((myModMask, xK_c), kill)
 
     -- #!-esque bindings
-    , ((myModMask, xK_s), spawn "subl -n &")
+    , ((myModMask, xK_s), gridselectWorkspace gsconfig W.greedyView)
     , ((myModMask, xK_g), spawn "firefox &")
     , ((myModMask, xK_f), spawn "thunar &")
     , ((myModMask .|. shiftMask, xK_l), spawn "xscreensaver-command -lock &")
