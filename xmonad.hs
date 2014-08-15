@@ -206,7 +206,7 @@ myKeyBindings =
     , ((myModMask, xK_c), kill)
 
     -- #!-esque bindings
-    , ((myModMask, xK_s), gridselectWorkspace gsconfig W.greedyView)
+    , ((myModMask, xK_o), gridselectWorkspace gsconfig W.greedyView)
     , ((myModMask, xK_g), spawn "firefox &")
     , ((myModMask, xK_f), spawn "thunar &")
     , ((myModMask .|. shiftMask, xK_l), spawn "xscreensaver-command -lock &")
