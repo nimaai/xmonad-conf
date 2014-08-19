@@ -93,8 +93,6 @@ myWorkspaces =
     "0:VM",    "Extr1", "Extr2"
   ]
 
-startupWorkspace = "5:Dev"  -- which workspace do you want to be on after launch?
-
 {-
   Layout configuration. In this section we identify which xmonad
   layouts we want to use. I have defined a list of default
@@ -355,7 +353,6 @@ main = do
   , handleEventHook = fullscreenEventHook
   , startupHook = do
       setWMName "LG3D"
-      windows $ W.greedyView startupWorkspace
       spawn "~/.xmonad/startup-hook"
   , manageHook = manageHook defaultConfig
       <+> composeAll myManagementHooks
