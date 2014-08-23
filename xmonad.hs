@@ -160,7 +160,7 @@ myLayouts =
   $ defaultLayouts
 
 -- here we define our custom GridSelect config
-gsconfig = defaultGSConfig { gs_navigate = navNSearch }
+gsconfig = defaultGSConfig { gs_font = "xft:Inconsolata:size=16", gs_navigate = navNSearch }
 
 {-
   Custom keybindings. In this section we define a list of relatively
