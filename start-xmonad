@@ -8,7 +8,9 @@
 #
 # SCREEN CONFIGURATION
 #
-(~/.xmonad/screen-custom && sleep 2) &
+~/.xmonad/screen-custom
+# wait until the screen configuration has been set completely
+sleep 3
 
 # Map capslock to escape
 (xmodmap ~/.Xmodmap) &
